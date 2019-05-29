@@ -2,7 +2,7 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
-const tasks = [
+const todos = [
   {
     task: 'Organize Garage',
     id: 1528817077286,
@@ -21,14 +21,19 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor(props) {
     super(props);
-    this.setState({ tasksList: tasks });
+    this.setState({ todosList: todos });
 
   }
+
+  addTodo = (todoTask) => {
+    
+  }
+
   render() {
     return (
       <div>
         <h2>Todo List: MVP</h2>
-        <TodoList todoList={tasks} />
+        <TodoList todoList={todos} />
         <TodoForm />
       </div>
     );
