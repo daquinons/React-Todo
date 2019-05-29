@@ -4,7 +4,8 @@ const TodoForm = ({ addFunction }) => {
 
   const [todo, setTodo] = useState('');
   
-  const clickHandler = () => {
+  const clickHandler = event => {
+    event.preventDefault();
     addFunction(todo);
     setTodo('');
   }
@@ -15,9 +16,11 @@ const TodoForm = ({ addFunction }) => {
 
   return (
     <div>
-      <input onChange={changeHandler} value={todo} />
-      <button onClick={clickHandler}>Add Task</button>
-      <button>Clear Completed</button>
+      <form>
+        <input onChange={changeHandler} value={todo} />
+        <button onClick={clickHandler}>Add Task</button>
+        <button>Clear Completed</button>
+      </form>
     </div>
   )
 }
