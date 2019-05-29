@@ -21,20 +21,30 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor(props) {
     super(props);
-    this.setState({ todosList: todos });
-
+    this.state = { 
+      todosList: todos 
+    };
   }
 
   addTodo = (todoTask) => {
-    
+    const newTodo = {
+      task: todoTask,
+      id: Date.now(),
+      completed: false,
+    }
+
+    console.log(newTodo);
+
+    const updatedTodosList = this.state.todosList.concat(newTodo);
+    this.setState({ todosList: updatedTodosList });
   }
 
   render() {
     return (
       <div>
         <h2>Todo List: MVP</h2>
-        <TodoList todoList={todos} />
-        <TodoForm />
+        <TodoList todoList={this.state.todosList} />
+        <TodoForm addFunction={this.addTodo} />
       </div>
     );
   }
