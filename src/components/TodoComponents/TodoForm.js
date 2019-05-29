@@ -5,8 +5,8 @@ const TodoForm = ({ addFunction }) => {
   const [todo, setTodo] = useState('');
   
   const clickHandler = () => {
-    console.log(addFunction);
     addFunction(todo);
+    setTodo('');
   }
 
   const changeHandler = event => {
@@ -15,7 +15,7 @@ const TodoForm = ({ addFunction }) => {
 
   return (
     <div>
-      <input onChange={changeHandler} />
+      <input onChange={changeHandler} value={todo} />
       <button onClick={clickHandler}>Add Task</button>
       <button>Clear Completed</button>
     </div>
