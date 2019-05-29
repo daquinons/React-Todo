@@ -33,8 +33,6 @@ class App extends React.Component {
       completed: false,
     }
 
-    console.log(newTodo);
-
     const updatedTodosList = this.state.todosList.concat(newTodo);
     this.setState({ todosList: updatedTodosList });
   }
