@@ -53,3 +53,34 @@ button {
   border: 0;
   background-color: white;
 }
+
+.made-by {
+  right:0;
+  bottom:0;
+  position:fixed;
+  z-index:100;
+  border-top-left-radius: 5px;
+  padding: 6px;
+  border-top:1px solid #efefef;
+  border-left:1px solid #efefef;
+  background:#fff;
+  color:#6f6f6f;
+  text-decoration:none;
+}
+.made-by:hover {
+  background:#fff;
+  color:rgb(255, 71, 66); /* change to your main brand color */
+}
+.made-by img {
+  border-radius:100%;
+  width:22px;
+  vertical-align:middle;
+}
+.made-by p {
+  margin:0;
+  vertical-align:middle;
+  display:inline;
+  margin-left:7px;
+  font-weight:500;
+  font-size:14px;
+}
