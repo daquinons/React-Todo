@@ -29,10 +29,14 @@ class App extends React.Component {
 
   clickHandler = event => {
     event.preventDefault();
-    this.addTodo(this.state.formField);
-    this.setState({
-      formField: "",
-    });
+    if (event.target.id === 'addTaskButton'){
+      this.addTodo(this.state.formField);
+      this.setState({
+        formField: "",
+      });
+    } else if (event.target.id === 'clearCompletedButton') {
+      this.clearCompleted();
+    };
   }
 
   changeHandler = event => {
@@ -53,6 +57,11 @@ class App extends React.Component {
     this.setState({ todosList: updatedTodosList });
   }
 
+  clearCompleted = () => {
+    const newTodosList = this.state.todosList.filter(todo => todo.completed === false);
+    this.setState({ todosList: newTodosList });
+  }
+
   toggleCompleted = (todoTaskId) => {
     let newTodosList = this.state.todosList.map(todo => {
       if (todo.id === todoTaskId) {
@@ -68,7 +77,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Todo List: MVP</h2>
+        <h2>Todo List</h2>
         <TodoList todoList={this.state.todosList} toggleCompleted={this.toggleCompleted} />
         <TodoForm formField={this.state.formField} changeHandler={this.changeHandler} clickHandler={this.clickHandler} />
       </div>

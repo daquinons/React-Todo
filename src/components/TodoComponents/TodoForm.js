@@ -5,8 +5,8 @@ const TodoForm = ({ formField, clickHandler, changeHandler }) => {
     <div>
       <form>
         <input onChange={changeHandler} value={formField} />
-        <button onClick={clickHandler}>Add Task</button>
-        <button>Clear Completed</button>
+        <button id="addTaskButton" onClick={clickHandler}>Add Task</button>
+        <button id="clearCompletedButton" onClick={clickHandler}>Clear Completed</button>
       </form>
     </div>
   )

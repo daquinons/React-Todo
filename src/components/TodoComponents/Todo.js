@@ -8,7 +8,9 @@ const Todo = ( { todo, toggleCompleted} ) => {
 
   return(
     <div onClick={manageClick}>
-      <p className={todo.completed ? "completed" : null}>{todo.task}</p>
+      <p>
+        <span className={todo.completed ? "completed" : null}>{todo.task}</span>
+      </p>
     </div>
   )
 }
