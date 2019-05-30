@@ -1,23 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const TodoForm = ({ addFunction }) => {
-
-  const [todo, setTodo] = useState('');
+const TodoForm = ({ formField, clickHandler, changeHandler }) => {
   
-  const clickHandler = event => {
-    event.preventDefault();
-    addFunction(todo);
-    setTodo('');
-  }
-
-  const changeHandler = event => {
-    setTodo(event.target.value);
-  }
-
   return (
     <div>
       <form>
-        <input onChange={changeHandler} value={todo} />
+        <input onChange={changeHandler} value={formField} />
         <button onClick={clickHandler}>Add Task</button>
         <button>Clear Completed</button>
       </form>

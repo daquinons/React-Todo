@@ -22,9 +22,25 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      todosList: todos 
+      todosList: todos,
+      formField: "",
     };
   }
+
+  clickHandler = event => {
+    event.preventDefault();
+    this.addTodo(this.state.formField);
+    this.setState({
+      formField: "",
+    });
+  }
+
+  changeHandler = event => {
+    this.setState({
+      formField: event.target.value,
+    });
+  }
+
 
   addTodo = (todoTask) => {
     const newTodo = {
@@ -42,7 +58,7 @@ class App extends React.Component {
       <div>
         <h2>Todo List: MVP</h2>
         <TodoList todoList={this.state.todosList} />
-        <TodoForm addFunction={this.addTodo} />
+        <TodoForm formField={this.state.formField} changeHandler={this.changeHandler} clickHandler={this.clickHandler} />
       </div>
     );
   }
