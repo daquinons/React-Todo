@@ -9,8 +9,9 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor(props) {
     super(props);
+    const savedTasksJson = window.localStorage.getItem('savedTasks');
     this.state = { 
-      todosList: todos,
+      todosList: savedTasksJson ? JSON.parse(savedTasksJson) : [],
       formField: "",
     };
   }
@@ -60,6 +61,10 @@ class App extends React.Component {
     })
 
     this.setState({ todosList: newTodosList });
+  }
+
+  componentDidUpdate() {
+    window.localStorage.setItem('savedTasks', JSON.stringify(this.state.todosList));
   }
 
   render() {
