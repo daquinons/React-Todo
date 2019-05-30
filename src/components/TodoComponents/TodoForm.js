@@ -1,7 +1,6 @@
 import React from 'react';
 
 const TodoForm = ({ formField, clickHandler, changeHandler }) => {
-  
   return (
     <div>
       <form>
