@@ -34,7 +34,6 @@ class App extends React.Component {
     });
   }
 
-
   addTodo = (todoTask) => {
     const newTodo = {
       task: todoTask,
@@ -63,8 +62,10 @@ class App extends React.Component {
     this.setState({ todosList: newTodosList });
   }
 
-  componentDidUpdate() {
-    window.localStorage.setItem('savedTasks', JSON.stringify(this.state.todosList));
+  componentDidUpdate(_, prevState) {
+    if (JSON.stringify(this.state.todosList) !== prevState) {
+      window.localStorage.setItem('savedTasks', JSON.stringify(this.state.todosList));
+    }
   }
 
   render() {
